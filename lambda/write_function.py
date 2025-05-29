@@ -11,12 +11,13 @@ def lambda_handler(event, context):
         data = body['Data']
 
         table.put_item(Item={'ItemId': item_id, 'Data': data})
+
         return {
             'statusCode': 200,
             'headers': {
-                'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods': 'POST,OPTIONS',
+                'Access-Control-Allow-Headers': 'Content-Type',
+                'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
             },
             'body': json.dumps({'message': 'Item saved successfully'})
         }
@@ -25,8 +26,9 @@ def lambda_handler(event, context):
         return {
             'statusCode': 500,
             'headers': {
-                'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Headers': 'Content-Type',
+                'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
             },
             'body': json.dumps({'error': str(e)})
         }
