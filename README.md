@@ -63,4 +63,4 @@ To simulate a regional failure:
 ## 🔗 Resources
 - [AWS DynamoDB Global Tables](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html)
 - [Route 53 Failover Routing](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-failover)
-# Multi-Region Serverless API Project
+
