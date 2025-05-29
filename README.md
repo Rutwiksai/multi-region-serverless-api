@@ -16,7 +16,8 @@ This project demonstrates how to build a **highly available and disaster-resilie
 
 ## 🌐 Architecture
 
-![Architecture Diagram](architecture/diagram.png)
+![aws diagram](https://github.com/user-attachments/assets/c13c9f47-1c23-4f76-a526-cd727fbcbdf1)
+
 
 ## ⚙️ How It Works
 
