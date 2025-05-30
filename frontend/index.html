@@ -38,32 +38,44 @@
       const itemId = document.getElementById('itemId').value;
       const itemData = document.getElementById('itemData').value;
 
-      const response = await fetch(`${apiUrl}/write`, {
-        method: 'POST',
-        body: JSON.stringify({ ItemId: itemId, Data: itemData }),
-        headers: { 'Content-Type': 'application/json' }
-      });
+      try {
+        const response = await fetch(`${apiUrl}/write`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ ItemId: itemId, Data: itemData })
+        });
 
-      const result = await response.json();
-      alert(result.message || result.error);
-      readData();
+        const result = await response.json();
+        alert(result.message || result.error);
+        readData();
+      } catch (err) {
+        console.error("❌ Error in writeData:", err);
+        alert("Failed to write data.");
+      }
     }
 
     async function readData() {
-      const response = await fetch(`${apiUrl}/read`);
-      const data = await response.json();
-      const dataList = document.getElementById('dataList');
-      dataList.innerHTML = '';
+      try {
+        const response = await fetch(`${apiUrl}/read`);
+        const data = await response.json();
+        console.log("✅ Data fetched:", data);
 
-      data.forEach(item => {
-        const li = document.createElement('li');
-        li.className = 'list-group-item';
-        li.textContent = `ID: ${item.ItemId}, Data: ${item.Data}`;
-        dataList.appendChild(li);
-      });
+        const dataList = document.getElementById('dataList');
+        dataList.innerHTML = '';
+
+        data.forEach(item => {
+          const li = document.createElement('li');
+          li.className = 'list-group-item';
+          li.textContent = `ID: ${item.ItemId}, Data: ${item.Data}`;
+          dataList.appendChild(li);
+        });
+      } catch (err) {
+        console.error("❌ Error in readData:", err);
+      }
     }
 
-    readData(); // Auto load
+    // Auto-load data when the page opens
+    readData();
   </script>
 </body>
 </html>
