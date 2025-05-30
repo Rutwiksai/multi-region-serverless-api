@@ -14,6 +14,7 @@ This project demonstrates a fully serverless, regionally redundant web app using
 
 ## ⚙️ Architecture
 
+![AWS_Architecture](https://github.com/user-attachments/assets/d60070fb-a4df-4bb6-ad9a-59817b1138f5)
 
 
 ---
